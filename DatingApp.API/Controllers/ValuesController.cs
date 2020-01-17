@@ -30,6 +30,7 @@ namespace DatingApp.API.Controllers
         // } THIS method is synchronous, so not really scalable as it will block the thread until the database query
         // has completed and returned values, so we need to make something scalable, i.e. asynchronous.
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {

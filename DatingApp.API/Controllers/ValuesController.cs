@@ -29,7 +29,7 @@ namespace DatingApp.API.Controllers
         // } THIS method is synchronous, so not really scalable as it will block the thread until the database query
         // has completed and returned values, so we need to make something scalable, i.e. asynchronous.
 
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
@@ -39,7 +39,7 @@ namespace DatingApp.API.Controllers
         }
 
         // GET api/values/5
-        [AllowAnonymous]
+        [Authorize(Roles = "Member")]
         [HttpGet("{id}")]
         public async Task<ActionResult> GetValue(int id)
         {
